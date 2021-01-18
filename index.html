@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <title>Weather app</title>
     <head>
         <link rel="stylesheet" href ="style.css">
@@ -15,7 +15,7 @@
             required
             autocomplete="off"
             />
-            <br>
+        <br>
         </br>
         <button id="search-button">Search</button>
 
@@ -28,7 +28,7 @@
             </div>
                 <div id="temp">
                     <img id="temp-icon" src="./icons/sun.svg" alt="">
-                    <p><span id="temp-value">-----</span> <span id="temp-unit" >&#176c</span> </p>
+                    <p><span id="temp-value">-----</span> <span id="temp-unit" >&#176c;</span> </p>
                 </div>
 
                 <div id="climate">
@@ -57,7 +57,26 @@
 
 
 
-
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
+        <script>
+        
+          var options = {
+          bottom: '64px', // default: '32px'
+          right: 'unset', // default: '32px'
+          left: '32px', // default: 'unset'
+          time: '0.5s', // default: '0.3s'
+          mixColor: '#fff', // default: '#fff'
+          backgroundColor: '#fff',  // default: '#fff'
+          buttonColorDark: '#100f2c',  // default: '#100f2c'
+          buttonColorLight: '#fff', // default: '#fff'
+          saveInCookies: false, // default: true,
+          label: '🌓' // default: ''
+        }
+        
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+        
+        </script>
 
 <script src="script.js">
 
