@@ -6,6 +6,39 @@ let iconfile;
 const searchInput=document.getElementById("search-input");
 const searchButton=document.getElementById("search-button");
 
+
+
+
+searchButton.addEventListener('click', (e)=>
+{
+
+e.preventDefault();
+getWeather(searchInput.value);
+searchInput.value='';
+
+
+});
+
+
+
+const getWeather=async (city)=>
+{
+    try{
+
+        const response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=02060e118da723a8af10b3e7a7f0042c`,
+   
+            {mode: 'cors'}
+        );
+
+        const weatherData= await response.json();
+        console.log(weatherData);
+        const{name}=weatherData;
+        const{feels_like}=weatherData.main;
+        const{id,main}=weatherData.weather[0];
+        loc.textContent=name;
+        climate.textContent=main;
+        tempvalue.textContent=Math.round(feels_like-273);
+
 window.addEventListener("load" ,()=>{
 
     let long;
@@ -23,7 +56,7 @@ window.addEventListener("load" ,()=>{
         lat=position.coords.latitude;
         const proxy="https://cors-anywhere.herokuapp.com/";
     
-            const api=`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=dab3af44de7d24ae7ff86549334e45bd     `
+            const api=`${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=02060e118da723a8af10b3e7a7f0042c     `
     
             fetch(api).then((response)=>{
     
